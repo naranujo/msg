@@ -6,6 +6,7 @@ dotenv.config();
 
 const app = express();
 
+const port = process.env.PORT || 3000;
 
 const accountSid = process.env.TWILIO_ACCOUNT_SID
 const authToken = process.env.TWILIO_AUTH_TOKEN
@@ -62,6 +63,6 @@ app.post('/webhook', async (req, res) => {
 });
 
 
-http.createServer(app).listen(3000, () => {
-  console.log('Listening on port 3000');
+app.listen(port, () => {
+    console.log(`Server running on port ${port}`);
 });
