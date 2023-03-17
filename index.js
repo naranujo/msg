@@ -42,6 +42,10 @@ async function processIncomingMessage(message) {
 
 app.use(express.json())
 
+app.get('/', (req, res) => {
+    res.send('Hello World!');
+});
+
 app.post('/webhook', async (req, res) => {
   const message = req.body.q;
   if (!message) {
